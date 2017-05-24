@@ -1,0 +1,119 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,900,700,400italic);
+
+body {
+  min-width: 640px;
+  font-family: $font-primary;
+  font-size:$font-size-base;
+  line-height: $line-height-base;
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  color: $primary;
+  background: $white;
+  position: relative;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+}
+.btn {
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 18px;
+  line-height: 23px;
+  transition: $transition-base;
+  color: $white;
+  background: $primary;
+  border: none;
+  outline: 0;
+  box-shadow: none;
+  padding: 10px 25px;
+  box-sizing: border-box;
+  height: 45px;
+
+  &.btn-primary {
+    background: $orange;
+
+    &:hover {
+      background: $orange-dark;
+    }
+  }
+
+  &.btn-white {
+    background: $white;
+    border: 1px solid $blue-light;
+    color: $blue;
+    
+    &:hover {
+      border-color: $blue;
+    }
+  }
+}
+.container {
+  width: 1024px;
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  padding:0 62px;
+
+  @include tablet {
+    width: 750px;
+  }
+
+  @include mobile {
+    width: 600px;
+  }
+
+  &.no_padding {
+    padding: 0;
+  }
+}
+.tooltip {
+  font-size: 0;
+  position: relative;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: transparent url(../img/help_ico.svg) center center no-repeat;
+
+  .box {
+    display: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: $white-light;
+    width: 275px;
+    box-sizing: border-box;
+    padding: 12px 20px 15px 20px;
+    background: $primary;
+    position: absolute;
+    bottom: 30px;
+    left: 8px;
+    transform: translateX(-50%);
+    cursor: default;
+    text-align: left;
+
+    &:after {
+      content: '';
+      border-style: solid;
+      border-width: 10px 10px 0 10px;
+      border-color: $primary transparent transparent transparent;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* animation */
+.animated {
+  transition: 1s;
+  transform: translateY(100px);
+  opacity: 0;
+}
+.animate .animated {
+  transform: translateY(0);
+  opacity: 1;
+}
